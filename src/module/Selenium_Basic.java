@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 
 public class Selenium_Basic {
 	//How to execute testcases in firefox browser using Selenium Webdriver
@@ -18,7 +19,7 @@ public class Selenium_Basic {
 	public  void chrome()
 	{
 		//****
-		System.setProperty("webdriver.chrome.driver", "D:\\eclipse\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "E:\\browser driver\\chromedriver.exe");
 		WebDriver chromedriver=new ChromeDriver();
 		chromedriver.get("http://www.google.com");
 		System.out.println("Chrome Browser opened");
@@ -36,7 +37,14 @@ public class Selenium_Basic {
 		System.out.println("Single Attribute Xpath"+xpath_signle.getText());
 		//Using multiple attribute
 		WebElement xpath_multiple=xpathdriver.findElement(By.xpath("//input[@name='Search_Go'][@src='/images/index_search_btn_ver2.png']"));
-		System.out.println("Multiple Xpath"+""+xpath_multiple.getAttribute("class"));
+		System.out.println("Multiple Xpath"+" "+xpath_multiple.getAttribute("class"));
+	}
+	public void internetexplorer()
+	{
+		System.setProperty("webdriver.ie.driver", "E:\\browser driver\\IEDriverServer.exe");
+		WebDriver iedriver=new InternetExplorerDriver();
+		iedriver.get("http://www.facebook.com");
+					
 	}
 
 	public static void main(String args[])
@@ -44,6 +52,7 @@ public class Selenium_Basic {
 		Selenium_Basic ff=new Selenium_Basic();
 		//ff.firefox();
 		//ff.chrome();
-		ff.xpath();
+		//ff.xpath();
+		ff.internetexplorer();
 	}
 }
